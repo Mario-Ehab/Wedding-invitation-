@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>دعوة زفاف Mario & Maria</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Noto+Sans+Arabic:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #f5f7fa 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-text-size-adjust: 100%;
+            touch-action: manipulation;
+        }
+
+        /* خلفية ورود هادئة */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,182,193,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(221,160,221,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255,182,193,0.2) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Header Responsive */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 12vw, 5rem);
+            font-weight: 600;
+            background: linear-gradient(45deg, #d4af37, #f7e1b5, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .invitation-text {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            color: #4a5568;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.4;
+            padding: 0 10px;
+        }
+
+        /* Date Section Responsive */
+        .date-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: clamp(25px, 8vw, 40px);
+            margin: 25px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            animation: fadeInUp 2s ease-out 0.5s both;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .date-icon {
+            font-size: clamp(2.5rem, 10vw, 4rem);
+            background: linear-gradient(45deg, #e53e3e, #fc8181);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .date-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.3rem, 5vw, 1.8rem);
+            color: #2d3748;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .date-details {
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Form Responsive */
+        .form-section {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: clamp(30px, 8vw, 50px);
+            margin-top: 30px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+            animation: fadeInUp 2.5s ease-out 1s both;
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        .form-title {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            color: #2d3748;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 500;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: clamp(15px, 5vw, 18px) 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: clamp(1rem, 4vw, 1.1rem);
+            font-family: inherit;
+            background: rgba(255,255,255,0.9);
+            transition: all 0.3s ease;
+            resize: vertical;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .input-group textarea {
+            height: clamp(100px, 25vw, 120px);
+            font-family: inherit;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: clamp(16px, 5vw, 20px);
+            background: linear-gradient(45deg, #d4af37, #f7e1b5);
+            color: #2d3748;
+            border: none;
+            border-radius: 12px;
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover,
+        .submit-btn:active {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .success-message {
+            display: none;
+            background: linear-gradient(45deg, #48bb78, #9ae6b4);
+            color: white;
+            padding: clamp(20px, 8vw, 25px);
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+            animation: bounceIn 0.6s ease;
+        }
+
+        .success-message h3 {
+            font-size: clamp(1.2rem, 5vw, 1.5rem);
+            margin-bottom: 10px;
+        }
+
+        /* قلوب Responsive */
+        .heart {
+            position: absolute;
+            width: clamp(12px, 3vw, 20px);
+            height: clamp(12px, 3vw, 20px);
+            background: #ff6b9d;
+            transform: rotate(-45deg);
+            animation: float 6s infinite linear;
+            pointer-events: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(-45deg) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(-45deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Media Queries للتحسين الإضافي */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .names {
+                letter-spacing: 1px;
+            }
+            
+            .date-details {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .input-group {
+                margin-bottom: 15px;
+            }
+            
+            .form-section {
+                margin: 20px 0;
+                padding: 25px 20px;
+            }
+        }
+
+        /* منع التكبير على iOS Safari */
+        input, textarea, button {
+            font-size: 16px;
+        }
+
+        /* تحسين التمرير */
+        body {
+            overscroll-behavior: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- قلوب متحركة -->
+        <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="heart" style="left: 20%; animation-delay: 1s;"></div>
+        <div class="heart" style="left: 80%; animation-delay: 2s;"></div>
+        <div class="heart" style="left: 90%; animation-delay: 3s;"></div>
+
+        <div class="header">
+            <h1 class="names">Mario & Maria</h1>
+            <p class="invitation-text">ندعوكم لحضور حفل زفافنا بكل فرح وحب</p>
+        </div>
+
+        <div class="date-section">
+            <span class="date-icon">💍</span>
+            <h2 class="date-title">تفاصيل الحفل</h2>
+            <div class="date-details">
+                📅 <strong>السبت 15 يونيو 2024</strong><br>
+                🕕 <strong>الساعة 7:00 مساءً</strong><br>
+                📍 <strong>فندق السلام - قاعة الياسمين</strong>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2 class="form-title">تأكيد الحضور</h2>
+            <form id="rsvpForm">
+                <div class="input-group">
+                    <label>اسمك الكريم:</label>
+                    <input type="text" id="guestName" required placeholder="اكتب اسمك هنا...">
+                </div>
+                
+                <div class="input-group">
+                    <label>عدد الأشخاص المرافقين:</label>
+                    <input type="number" id="guestsCount" min="0" max="10" value="0" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>رسالتكم وتمنياتكم لنا:</label>
+                    <textarea id="message" placeholder="اكتبوا لنا كلمة حلوة نحتفظ بيها 💕" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">إرسال التأكيد 🎉</button>
+            </form>
+            
+            <div id="successMessage" class="success-message">
+                <h3>شكراً لكم! 🎊</h3>
+                <p>تم تسجيل تأكيد حضوركم بنجاح<br>ننتظركم بحب كبير 💝</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Responsive Detection
+        function isMobile() {
+            return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Form Submission
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                guestName: document.getElementById('guestName').value,
+                guestsCount: document.getElementById('guestsCount').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toLocaleString('ar-EG'),
+                device: isMobile() ? 'موبايل' : 'كمبيوتر'
+            };
+
+            // حفظ في localStorage
+            const responses = JSON.parse(localStorage.getItem('weddingResponses') || '[]');
+            responses.push(formData);
+            localStorage.setItem('weddingResponses', JSON.stringify(responses));
+
+            // إخفاء الفورم وإظهار النجاح
+            document.getElementById('rsvpForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+
+            // إضافة قلوب احتفالية
+            createHearts();
+            
+            // Vibration للموبايل
+            if (navigator.vibrate) {
+                navigator.vibrate(200);
+            }
+        });
+
+        function createHearts() {
+            for(let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                    heart.style.animationDelay = (Math.random() * 2) + 's';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 6000);
+                }, i * 80);
+            }
+        }
+
+        // قلوب مستمرة
+        setInterval(() => {
+            if(Math.random() > 0.6 && document.visibilityState === 'visible') {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 7000);
+            }
+        }, 2500);
+
+        // تحسين الأداء على الموبايل
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
+</body>
+</html>
